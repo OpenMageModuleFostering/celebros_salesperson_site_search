@@ -1,0 +1,317 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Celebros Qwiser - Magento Extension
+ *
+ * @category    Celebros
+ * @package     Celebros_Qwiser
+ * @author		Omniscience Co. - Dan Aharon-Shalom (email: dan@omniscience.co.il)
+ *
+ */
+-->
+<config>
+  <modules>
+    <Celebros_Salesperson>
+      <version>2.0.0</version>
+    </Celebros_Salesperson>
+  </modules>
+  <global>
+    <models>
+      <salesperson>
+        <class>Celebros_Salesperson_Model</class>
+        <resourceModel>salesperson_mysql4</resourceModel>
+      </salesperson>
+      <core>
+        <rewrite>
+          <layout>Celebros_Salesperson_Model_Layout</layout>
+        </rewrite>
+      </core>
+      <!--<catalog> 
+				<rewrite>
+					<url>Celebros_Salesperson_Model_Catalog_Url</url>
+				</rewrite>
+			</catalog>-->
+      <salesperson_mysql4>
+        <class>Celebros_Salesperson_Model_Mysql4</class>
+        <entities>
+          <mapping>
+            <table>celebrosfieldsmapping</table>
+          </mapping>
+        </entities>
+      </salesperson_mysql4>
+    </models>
+    <blocks>
+      <salesperson>
+        <class>Celebros_Salesperson_Block</class>
+      </salesperson>
+      <adminhtml>
+        <rewrite>
+          <system_convert_profile_edit_tab_run>Celebros_Salesperson_Block_System_Convert_Profile_Edit_Tab_Run</system_convert_profile_edit_tab_run>
+        </rewrite>
+      </adminhtml>
+      <!--<checkout> 
+				<rewrite>
+					<cart_crosssell>Celebros_Salesperson_Block_Checkout_Cart_Crosssell</cart_crosssell>
+				</rewrite>
+			</checkout>-->
+      <!--<catalog> 
+				<rewrite>
+					<navigation>Celebros_Salesperson_Block_Navigation</navigation>
+				</rewrite>
+			</catalog>-->
+    </blocks>
+    <helpers>
+      <salesperson>
+        <class>Celebros_Salesperson_Helper</class>
+      </salesperson>
+    </helpers>
+    <resources>
+      <salesperson_setup>
+        <setup>
+          <module>Celebros_Salesperson</module>
+        </setup>
+        <connection>
+          <use>core_setup</use>
+        </connection>
+      </salesperson_setup>
+      <salesperson_write>
+        <connection>
+          <use>core_write</use>
+        </connection>
+      </salesperson_write>
+      <salesperson_read>
+        <connection>
+          <use>core_read</use>
+        </connection>
+      </salesperson_read>
+    </resources>
+    <events>
+      <after_reindex_process_catalog_url>
+        <observers>
+          <Celebros_Salesperson_observer>
+            <type>singleton</type>
+            <class>salesperson/observer</class>
+            <method>after_reindex_process_catalog_url</method>
+          </Celebros_Salesperson_observer>
+        </observers>
+      </after_reindex_process_catalog_url>
+      <!--<catalog_category_save_after>
+                <observers>
+                    <Celebros_Salesperson_observer>
+                        <type>singleton</type>
+                        <class>salesperson/observer</class>
+                        <method>after_reindex_process_catalog_url</method>
+                    </Celebros_Salesperson_observer>
+                </observers>
+            </catalog_category_save_after>-->
+
+      <!--<catalog_product_save_after>-->
+      <!--	<observers>-->
+      <!--		<Celebros_Salesperson_observer>-->
+      <!--			<type>singleton</type>-->
+      <!--			<class>salesperson/observer</class>-->
+      <!--			<method>updateStockConfig</method>-->
+      <!--		</Celebros_Salesperson_observer>-->
+      <!--	</observers>-->
+      <!--</catalog_product_save_after>-->
+      <!--			<sales_order_shipment_save_after>-->
+      <!--				<observers>-->
+      <!--					<Celebros_Salesperson_observer>-->
+      <!--						<type>singleton</type>-->
+      <!--						<class>salesperson/observer</class>-->
+      <!--						<method>updateStockShipment</method>-->
+      <!--					</Celebros_Salesperson_observer>-->
+      <!--				</observers>-->
+      <!--			</sales_order_shipment_save_after>-->
+      <!--<checkout_type_onepage_save_order_after>-->
+      <!--	<observers>-->
+      <!--		<Celebros_Salesperson_observer>-->
+      <!--			<type>singleton</type>-->
+      <!--			<class>salesperson/observer</class>-->
+      <!--			<method>updateStockOrder</method>-->
+      <!--		</Celebros_Salesperson_observer>-->
+      <!--	</observers>-->
+      <!--</checkout_type_onepage_save_order_after>-->
+    </events>
+  </global>
+  <admin>
+    <routers>
+      <salesperson_admin>
+        <use>admin</use>
+        <args>
+          <module>Celebros_Salesperson</module>
+          <frontName>salesperson_admin</frontName>
+        </args>
+      </salesperson_admin>
+    </routers>
+  </admin>
+  <frontend>
+
+    <events>
+      <!-- 			<catalog_category_load_after>
+				<observers>
+					<Celebros_Salesperson_observer>
+						<type>model</type>
+						<class>salesperson/observer</class>
+						<method>getUrl</method>
+					</Celebros_Salesperson_observer>
+				</observers>			
+			</catalog_category_load_after> -->
+    </events>
+    <routers>
+      <salesperson>
+        <use>standard</use>
+        <args>
+          <module>Celebros_Salesperson</module>
+          <frontName>salesperson</frontName>
+        </args>
+      </salesperson>
+    </routers>
+    <!--        <translate>-->
+    <!--            <modules>-->
+    <!--                <Celebros_Salesperson>-->
+    <!--                     <files>-->
+    <!--                          <default>Celebros_Salesperson.csv</default>-->
+    <!--                     </files>-->
+    <!--                </Celebros_Salesperson>-->
+    <!--            </modules>-->
+    <!--        </translate>-->
+    <layout>
+      <updates>
+        <salesperson>
+          <file>salesperson.xml</file>
+        </salesperson>
+      </updates>
+    </layout>
+  </frontend>
+  <adminhtml>
+    <translate>
+      <modules>
+        <Celebros_Salesperson>
+          <files>
+            <default>Celebros_Salesperson.csv</default>
+          </files>
+        </Celebros_Salesperson>
+      </modules>
+    </translate>
+    <menu>
+      <menu1 translate="title" module="salesperson">
+        <title>Test</title>
+        <sort_order>60</sort_order>
+        <children>
+          <menuitem1 module="salesperson">
+            <title>Celebros Test</title>
+            <action>salesperson_admin/export/test</action>
+          </menuitem1>
+        </children>
+      </menu1>
+    </menu>
+    <menu>
+      <catalog>
+        <children>
+          <salesperson_mapping translate="title" module="salesperson">
+            <title>Salesperson Mapping</title>
+            <action>salesperson_admin/adminhtml_mapping</action>
+          </salesperson_mapping>
+        </children>
+      </catalog>
+    </menu>
+    <acl>
+      <resources>
+        <all>
+          <title translate="title">Allow Everything</title>
+        </all>
+        <admin>
+          <children>
+            <system>
+              <children>
+                <config>
+                  <children>
+                    <salesperson>
+                      <title translate="title">Celebros Salesperson Section</title>
+                    </salesperson>
+                  </children>
+                </config>
+              </children>
+            </system>
+            <catalog>
+              <children>
+                <salesperson_mapping>
+                  <title translate="title">Salesperson Mapping</title>
+                </salesperson_mapping>
+              </children>
+            </catalog>
+          </children>
+        </admin>
+      </resources>
+    </acl>
+    <layout>
+      <updates>
+        <salesperson>
+          <file>salesperson.xml</file>
+        </salesperson>
+      </updates>
+    </layout>
+  </adminhtml>
+
+  <default>
+    <salesperson>
+      <general_settings>
+        <host></host>
+        <port></port>
+        <sitekey></sitekey>
+      </general_settings>
+      <export_settings>
+        <delimiter>\t</delimiter>
+        <enclosed_values>"</enclosed_values>
+        <flat_export_enabled>0</flat_export_enabled>
+        <min_tier_price>0</min_tier_price>
+        <type>file</type>
+        <path></path>
+      </export_settings>
+      <display_settings>
+        <layout>salesperson/3columns.phtml</layout>
+        <search_page_ajax_enabled>0</search_page_ajax_enabled>
+        <display_lead_top>On top</display_lead_top>
+        <display_non_lead>left</display_non_lead>
+        <breadcrumbs>1</breadcrumbs>
+        <display_image_lead_question>1</display_image_lead_question>
+        <max_lead_answers>4</max_lead_answers>
+        <max_non_lead_questions>4</max_non_lead_questions>
+        <max_non_lead_answers>10</max_non_lead_answers>
+        <enable_non_lead_answers_multiselect>1</enable_non_lead_answers_multiselect>
+        <show_product_count_in_lead_answers>1</show_product_count_in_lead_answers>
+        <show_product_count_in_non_lead_answers>1</show_product_count_in_non_lead_answers>
+        <alt_message translate="label">We do not have {{query}}, maybe you will be interested in {{new_query}}</alt_message>
+        <page_size_selector>dropdown</page_size_selector>
+        <all_per_page>150</all_per_page>
+        <sorting_selector>dropdown</sorting_selector>
+        <sorting_fields>
+          <![CDATA[relevancy~desc~Relevancy
+price~asc~Price
+title~asc~Name]]>
+        </sorting_fields>
+        <default_sort_by>relevancy</default_sort_by>
+        <price_selector>dropdown</price_selector>
+        <page_nav_type>multipage</page_nav_type>
+        <go_to_product_on_one_result>1</go_to_product_on_one_result>
+      </display_settings>
+      <nav_to_search_settings>
+        <nav_to_search_use_full_category_path>category</nav_to_search_use_full_category_path>
+        <nav_to_search_use_full_category_path>0</nav_to_search_use_full_category_path>
+      </nav_to_search_settings>
+      <giftfinder_settings>
+        <giftfinder_type>salesperson/giftfinder/view.phtml</giftfinder_type>
+      </giftfinder_settings>
+    </salesperson>
+  </default>
+  <crontab>
+    <jobs>
+      <salesperson_export>
+        <run>
+          <model>salesperson/observer::catalogUpdate</model>
+        </run>
+      </salesperson_export>
+    </jobs>
+  </crontab>
+</config>

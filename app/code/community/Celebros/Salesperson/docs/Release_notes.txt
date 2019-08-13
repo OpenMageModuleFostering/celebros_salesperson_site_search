@@ -1,0 +1,70 @@
+======================
+xx/xx/2013 Build 2.1.1
+======================
+
+
+Fixes
+-----
+- nav2search multi store: Better support for multi-store. Reindex and create url redirections when enabling nav2search and in export so that category changed will be taken.
+
+- Sort by: Allows now for using the same XML field twice (For asc and desc).
+
+
+Improved
+--------
+- Large export:
+	* Memory usage is greatly reduced
+	* Better reporting.
+
+
+Changed files
+-------------
+Data.php
+Enable.php
+Observer.php
+ObserverLarge.php
+ResultController.php
+
+
+*********************************************************************************************
+
+======================
+11/04/2013 Build 2.1.0
+======================
+
+New
+---
+* Allow usage of flat tables in export (Important for multi-store websites)
+
+
+Fixes
+-----
+* Export crash when export encounters disabled categories.
+* Disabled variant products being exported
+* Enable/disable AC from admin
+
+
+Improved
+--------
+* Better reporting in manual export (More details and better output).
+
+
+Changed files
+-------------
+config.xml
+system.xml
+Observer.php
+
+*********************************************************************************************
+
+Build x.x.17
+
+Release notes:
+
+•	Change in Analytics to work with AIWriter API
+
+Files updated:
+
+•	/app/code/local/Celebros/Salesperson/etc/config.xml
+•	/app/code/local/Celebros/Salesperson/Model/Observer.php
+•	/app/code/local/Celebros/Salesperson/controllers/ResultController.php

@@ -1,0 +1,654 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Celebros Qwiser - Magento Extension
+ *
+ * @category    Celebros
+ * @package     Celebros_Qwiser
+ * @author		Omniscience Co. - Dan Aharon-Shalom (email: dan@omniscience.co.il)
+ *
+ */
+-->
+<config>
+	<tabs>
+		<celebros translate="label" module="salesperson">
+			<label>Conversion Pro Settings</label>
+			<sort_order>300</sort_order>
+		</celebros>
+	</tabs>
+   <sections>
+        <salesperson translate="label" module="salesperson">
+        	<label>Conversion Pro Settings</label>
+			<tab>celebros</tab>
+			<frontend_type>text</frontend_type>
+			<sort_order>0</sort_order>
+			<show_in_default>1</show_in_default>
+			<show_in_website>0</show_in_website>
+           	<show_in_store>1</show_in_store>
+            <groups>
+                <general_settings translat="label">
+                	<label>General Settings</label>
+                	<frontend_type>text</frontend_type>
+                	<sort_order>0</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>1</show_in_store>
+                	<fields>
+                		<search_enabled translate="label">
+                			<label>Enable search</label>
+                			<frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                			<sort_order>0</sort_order>
+                			<show_in_default>1</show_in_default>
+                			<show_in_website>0</show_in_website>
+                			<show_in_store>1</show_in_store>
+                		</search_enabled>					
+                		<host translate="label">
+                			<label>Host</label>
+                			<frontend_type>text</frontend_type>
+                			<sort_order>5</sort_order>
+                			<show_in_default>1</show_in_default>
+                			<show_in_website>0</show_in_website>
+                			<show_in_store>1</show_in_store>
+							<depends><search_enabled>1</search_enabled></depends>
+                		</host>
+                		<port translate="label">
+                			<label>Port</label>
+                			<frontend_type>text</frontend_type>
+                			<sort_order>10</sort_order>
+                			<show_in_default>1</show_in_default>
+                			<show_in_website>0</show_in_website>
+                			<show_in_store>1</show_in_store>
+							<depends><search_enabled>1</search_enabled></depends>
+                		</port>
+                		<sitekey translate="label">
+                			<label>Site Key</label>
+                			<frontend_type>text</frontend_type>
+                			<sort_order>20</sort_order>
+                			<show_in_default>1</show_in_default>
+                			<show_in_website>0</show_in_website>
+                			<show_in_store>1</show_in_store>
+							<depends><search_enabled>1</search_enabled></depends>
+                		</sitekey>
+                	</fields>
+                </general_settings>
+                <export_settings  translat="label">
+                	<label>Export Data Settings</label>
+                	<frontend_type>text</frontend_type>
+                	<sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+					<show_in_website>0</show_in_website>
+                    <show_in_store>1</show_in_store>
+                		<fields>
+						    <export_enabled translate="label">
+								<label>Enable export</label>
+								<frontend_type>select</frontend_type>
+								<source_model>adminhtml/system_config_source_yesno</source_model>
+								<sort_order>0</sort_order>
+								<show_in_default>1</show_in_default>
+								<show_in_website>0</show_in_website>
+								<show_in_store>1</show_in_store>
+							</export_enabled>
+							<flat_export_enabled translate="label">
+                                <label>Enable flat tables usage (If enabled in Magento)</label>
+                                <frontend_type>select</frontend_type>
+                                <source_model>adminhtml/system_config_source_yesno</source_model>
+                                <sort_order>3</sort_order>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>0</show_in_website>
+                                <show_in_store>1</show_in_store>
+                            </flat_export_enabled>  	
+                			<delimiter translate="label">
+                				<label>Value Delimtier</label>
+			                	<frontend_type>text</frontend_type>
+			                	<sort_order>5</sort_order>
+			                    <show_in_default>1</show_in_default>
+			                    <show_in_website>0</show_in_website>
+								<show_in_store>1</show_in_store>
+			                    <comment>(\t for tab)</comment>
+								<depends><export_enabled>1</export_enabled></depends>
+                			</delimiter>
+                			<enclosed_values translate="label">
+                				<label>Enclosed Value In</label>
+                				<frontend_type>text</frontend_type>
+                				<sort_order>10</sort_order>
+			                    <show_in_default>1</show_in_default>
+			                    <show_in_website>0</show_in_website>
+								<show_in_store>1</show_in_store>
+			                    <comment>Warning! Empty value can cause problems with CSV format.</comment>
+								<depends><export_enabled>1</export_enabled></depends>
+                			</enclosed_values>
+                			<min_tier_price translate="label">
+                				<label>Minimal tier pricing as a price</label>
+                				<frontend_type>select</frontend_type>
+                            	<source_model>adminhtml/system_config_source_yesno</source_model>
+                				<sort_order>11</sort_order>
+                				<show_in_default>1</show_in_default>
+			                    <show_in_website>0</show_in_website>
+								<show_in_store>1</show_in_store>
+								<depends><export_enabled>1</export_enabled></depends>
+                			</min_tier_price>							
+                			<type translate="label">
+                				<label>Type</label>
+                				<frontend_type>select</frontend_type>
+                            	<source_model>salesperson/system_config_source_fileftp</source_model>
+                				<sort_order>20</sort_order>
+                				<show_in_default>1</show_in_default>
+			                    <show_in_website>0</show_in_website>
+								<show_in_store>1</show_in_store>
+								<depends><export_enabled>1</export_enabled></depends>
+                			</type>
+                			<path translate="label">
+                				<label>Absolute Path</label>
+                				<frontend_type>text</frontend_type>
+								<comment>E.g. /var/www/vhosts/yourdomain.com/var/export</comment>
+                				<sort_order>30</sort_order>
+                				<show_in_default>1</show_in_default>
+                				<show_in_website>0</show_in_website>
+                				<show_in_store>0</show_in_store>
+								<depends><export_enabled>1</export_enabled></depends>
+                			</path>
+                			<ftp_host translate="label">
+                				<label>FTP Host</label>
+                				<frontend_type>text</frontend_type>
+                				<sort_order>40</sort_order>
+			                    <show_in_default>1</show_in_default>
+			                    <show_in_website>0</show_in_website>
+								<show_in_store>1</show_in_store>
+			                    <depends><type>ftp</type></depends>
+								<depends><export_enabled>1</export_enabled></depends>
+                			</ftp_host>
+                			<ftp_port translate="label">
+                				<label>FTP Port</label>
+                				<frontend_type>text</frontend_type>
+                				<sort_order>50</sort_order>
+			                    <show_in_default>1</show_in_default>
+			                    <show_in_website>0</show_in_website>
+								<show_in_store>1</show_in_store>
+			                    <depends><type>ftp</type></depends>
+								<depends><export_enabled>1</export_enabled></depends>
+                			</ftp_port>
+                			<ftp_user translate="label">
+                				<label>FTP User</label>
+                				<frontend_type>text</frontend_type>
+                				<sort_order>60</sort_order>
+			                    <show_in_default>1</show_in_default>
+			                    <show_in_website>0</show_in_website>
+								<show_in_store>1</show_in_store>
+			                    <depends><type>ftp</type></depends>
+								<depends><export_enabled>1</export_enabled></depends>
+                			</ftp_user>
+                			<ftp_password translate="label">
+                				<label>FTP Password</label>
+                				<frontend_type>text</frontend_type>
+                				<sort_order>70</sort_order>
+			                    <show_in_default>1</show_in_default>
+			                    <show_in_website>0</show_in_website>
+								<show_in_store>1</show_in_store>
+			                    <depends><type>ftp</type></depends>
+								<depends><export_enabled>1</export_enabled></depends>
+                			</ftp_password>
+                			<passive translate="label">
+                				<label>Passive</label>
+                				<frontend_type>select</frontend_type>
+                            	<source_model>adminhtml/system_config_source_yesno</source_model>
+                				<sort_order>80</sort_order>
+                				<show_in_default>1</show_in_default>
+			                    <show_in_website>0</show_in_website>
+								<show_in_store>1</show_in_store>
+			                    <depends><type>ftp</type></depends>
+								<depends><export_enabled>1</export_enabled></depends>
+                			</passive>
+                			<cron_enabled translate="label">
+                				<label>Enable Cron Catalog Update</label>
+                				<frontend_type>select</frontend_type>
+                            	<source_model>adminhtml/system_config_source_yesno</source_model>
+                				<sort_order>81</sort_order>
+                				<show_in_default>1</show_in_default>
+			                    <show_in_website>0</show_in_website>
+								<show_in_store>1</show_in_store>
+								<depends><export_enabled>1</export_enabled></depends>
+                			</cron_enabled>
+                			<profile_id translate="label">
+	                            <label>Salesperson Export Profile Id</label>
+	                            <frontend_type>text</frontend_type>
+	                            <sort_order>85</sort_order>
+	                            <show_in_default>1</show_in_default>
+	                            <show_in_website>0</show_in_website>
+	                            <show_in_store>1</show_in_store>
+	                            <depends><cron_enabled>1</cron_enabled></depends>
+								<depends><export_enabled>1</export_enabled></depends>
+	                        </profile_id>
+	               			<cron_expr translate="label">
+	                            <label>Cron Expression</label>
+	                            <frontend_type>text</frontend_type>
+	                            <comment>Cron expression syntax</comment>
+	                            <backend_model>salesperson/system_config_backend_export_cron</backend_model>
+	                            <sort_order>90</sort_order>
+	                            <show_in_default>1</show_in_default>
+								<show_in_website>0</show_in_website>
+	                            <show_in_store>1</show_in_store>
+	                            <depends><cron_enabled>1</cron_enabled></depends>
+								<depends><export_enabled>1</export_enabled></depends>
+	                        </cron_expr>
+                		</fields>
+                </export_settings>
+                <display_settings>
+                	<label translate="label">Result Display Settings</label>
+                	<frontend_type>text</frontend_type>
+                	<sort_order>20</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                      <alt_message translate="label">
+                			<label>Alternative Products Message</label>
+                			<frontend_type>text</frontend_type>
+                			<comment>Use {{query}}, {{new_query}} tags to display the search terms</comment>
+                			<sort_order>5</sort_order>
+                			<show_in_default>1</show_in_default>
+                			<show_in_website>0</show_in_website>
+                			<show_in_store>1</show_in_store>
+                		</alt_message>				
+                		<layout translate="label">
+                            <label>Page Layout</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>salesperson/system_config_source_layouts</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </layout>
+                        <search_page_ajax_enabled translate="label">
+                            <label>Enable Ajax Search Results Page</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>15</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </search_page_ajax_enabled >						
+                		<display_non_lead translate="label">
+                			<label>Show Non Lead Questions</label>
+                			<frontend_type>select</frontend_type>
+                            <source_model>salesperson/system_config_source_nonlead</source_model>
+                			<sort_order>20</sort_order>
+                			<show_in_default>1</show_in_default>
+                			<show_in_website>0</show_in_website>
+                			<show_in_store>1</show_in_store>
+                		</display_non_lead>						
+                        <display_lead translate="label">
+                			<label>Show Lead Question</label>
+                			<frontend_type>select</frontend_type>
+                            <source_model>salesperson/system_config_source_lead</source_model>
+                			<sort_order>30</sort_order>
+                			<show_in_default>1</show_in_default>
+                			<show_in_website>0</show_in_website>
+                			<show_in_store>1</show_in_store>
+                		</display_lead>
+                        <breadcrumbs translate="label">
+                            <label>Show Breadcrumbs</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>80</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </breadcrumbs>
+                        <display_image_lead_question translate="label">
+                            <label>Display Images In Lead Question</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>85</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </display_image_lead_question>
+				        <radiobuttons_questions translate="label">
+                			<label>Radio Buttons Questions</label>
+							<comment>Enter comma separated question names</comment>
+                			<frontend_type>text</frontend_type>
+                			<sort_order>86</sort_order>
+                			<show_in_default>1</show_in_default>
+                			<show_in_website>0</show_in_website>
+                			<show_in_store>1</show_in_store>
+                		</radiobuttons_questions>						
+                    	<max_lead_answers translate="label">
+	                    	<label>Maximum Lead Answers</label>
+	                    	<frontend_type>text</frontend_type>
+	               			<sort_order>90</sort_order>
+	               			<show_in_default>1</show_in_default>
+	               			<show_in_website>0</show_in_website>
+	                   		<show_in_store>1</show_in_store>
+                    	</max_lead_answers>
+                    	<max_non_lead_questions translate="label">
+	                    	<label>Maximum Non Lead Questions</label>
+	                    	<frontend_type>text</frontend_type>
+	               			<sort_order>110</sort_order>
+	               			<show_in_default>1</show_in_default>
+	               			<show_in_website>0</show_in_website>
+	                   		<show_in_store>1</show_in_store>
+	                   	</max_non_lead_questions>
+                    	<max_non_lead_answers translate="label">
+	                    	<label>Maximum Non Lead Answers</label>
+	                    	<frontend_type>text</frontend_type>
+	               			<sort_order>120</sort_order>
+	               			<show_in_default>1</show_in_default>
+	               			<show_in_website>0</show_in_website>
+	                   		<show_in_store>1</show_in_store>
+                    	</max_non_lead_answers>
+						<enable_non_lead_answers_multiselect translate="label">
+							<label>Enable Non Lead Answers Multiselect</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>131</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>0</show_in_website>
+							<show_in_store>1</show_in_store>
+						</enable_non_lead_answers_multiselect>						
+                		<show_product_count_in_lead_answers translate="label">
+                			<label>Show Product Count In Lead Answers</label>
+                			<frontend_type>select</frontend_type>
+                			<source_model>adminhtml/system_config_source_yesno</source_model>
+                			<sort_order>140</sort_order>
+                			<show_in_default>1</show_in_default>
+                			<show_in_website>0</show_in_website>
+                			<show_in_store>1</show_in_store>
+                		</show_product_count_in_lead_answers>
+                		<show_product_count_in_non_lead_answers translate="label">
+                			<label>Show Product Count In Non Lead Answers</label>
+                			<frontend_type>select</frontend_type>
+                			<source_model>adminhtml/system_config_source_yesno</source_model>
+                			<sort_order>150</sort_order>
+                			<show_in_default>1</show_in_default>
+                			<show_in_website>0</show_in_website>
+                			<show_in_store>1</show_in_store>
+                		</show_product_count_in_non_lead_answers>
+                		<page_size_selector translate="label">
+                			<label>Page Size Selector Type</label>
+                			<frontend_type>select</frontend_type>
+                			<source_model>salesperson/system_config_source_selectortype</source_model>
+                			<sort_order>170</sort_order>
+                			<show_in_default>1</show_in_default>
+                			<show_in_website>0</show_in_website>
+                			<show_in_store>1</show_in_store>
+                		</page_size_selector>
+                		<all_per_page translate="label">
+                			<label>Actual Page Size for Show All</label>
+	                    	<frontend_type>text</frontend_type>
+	               			<sort_order>175</sort_order>
+	               			<show_in_default>1</show_in_default>
+	               			<show_in_website>0</show_in_website>
+	                   		<show_in_store>1</show_in_store>
+                		</all_per_page>						
+                		<sorting_selector translate="label">
+                			<label>Sort Selector Type</label>
+                			<frontend_type>select</frontend_type>
+                			<source_model>salesperson/system_config_source_selectortype</source_model>
+                			<sort_order>180</sort_order>
+                			<show_in_default>1</show_in_default>
+                			<show_in_website>0</show_in_website>
+                			<show_in_store>1</show_in_store>
+                		</sorting_selector>
+                		<sorting_fields translate="label">
+                			<label>Sorting fields</label>
+                			<frontend_type>textarea</frontend_type>
+                			<sort_order>181</sort_order>
+                			<show_in_default>1</show_in_default>
+                			<show_in_website>0</show_in_website>
+                			<show_in_store>1</show_in_store>
+							<comment>Magento attribute code ~ order ~ Salesperson attribute code (usually the same as Magento) </comment>
+                		</sorting_fields>
+						<default_sort_by translate="label">
+                			<label>Default sort</label>
+                			<frontend_type>text</frontend_type>
+                			<sort_order>182</sort_order>
+                			<show_in_default>1</show_in_default>
+                			<show_in_website>0</show_in_website>
+                			<show_in_store>1</show_in_store>
+                		</default_sort_by>	
+						<price_selector translate="label">
+                			<label>Price Selector Type</label>
+                			<frontend_type>select</frontend_type>
+                			<source_model>salesperson/system_config_source_pricetype</source_model>
+                			<sort_order>185</sort_order>
+                			<show_in_default>1</show_in_default>
+                			<show_in_website>0</show_in_website>
+                			<show_in_store>1</show_in_store>
+                		</price_selector>						
+                		<page_nav_type translate="label">
+                			<label>Pagination</label>
+                			<frontend_type>select</frontend_type>
+                			<source_model>salesperson/system_config_source_pagenavtype</source_model>
+                			<sort_order>190</sort_order>
+                			<show_in_default>1</show_in_default>
+                			<show_in_website>0</show_in_website>
+                			<show_in_store>1</show_in_store>
+                		</page_nav_type>
+                    	<go_to_product_on_one_result translate="label">
+                			<label>Go To Product Page On One Result</label>
+                			<frontend_type>select</frontend_type>
+                			<source_model>adminhtml/system_config_source_yesno</source_model>
+                			<sort_order>200</sort_order>
+                			<show_in_default>1</show_in_default>
+                			<show_in_website>0</show_in_website>
+                			<show_in_store>1</show_in_store>
+                		</go_to_product_on_one_result>
+                    	<search_profile translate="label">
+                			<label>Search profile name</label>
+                			<frontend_type>text</frontend_type>
+                			<sort_order>210</sort_order>
+                			<show_in_default>1</show_in_default>
+                			<show_in_website>0</show_in_website>
+                			<show_in_store>1</show_in_store>
+                		</search_profile>
+                  </fields>
+                </display_settings>
+                <nav_to_search_settings>
+                	<label>Navigation to Search Settings</label>
+                	<frontend_type>text</frontend_type>
+                	<sort_order>25</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+						<nav_to_search translate="label">
+							<label>Enable Navigation to Search</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<backend_model>salesperson/system_config_backend_navigationtosearch_enable</backend_model>
+							<sort_order>0</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>0</show_in_website>
+							<show_in_store>1</show_in_store>
+						</nav_to_search>
+						<nav_to_search_use_full_category_path translate="label">
+							<label>Navigation to Search by</label>
+							<frontend_type>select</frontend_type>
+							<source_model>salesperson/system_config_source_navigationtosearch</source_model>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>0</show_in_website>
+							<show_in_store>1</show_in_store>
+							<depends>
+								<nav_to_search>1</nav_to_search>
+							</depends>
+						 </nav_to_search_use_full_category_path>
+					</fields>
+            	</nav_to_search_settings>				
+                <anlx_settings>
+                	<label translate="label">Analytics Settings</label>
+                	<frontend_type>text</frontend_type>
+                	<sort_order>30</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>   
+                    	<host translate="label">
+	                    	<label>Host</label>
+	                    	<frontend_type>text</frontend_type>
+	               			<sort_order>0</sort_order>
+	               			<show_in_default>1</show_in_default>
+	               			<show_in_website>0</show_in_website>
+	                   		<show_in_store>1</show_in_store>
+                    	</host>
+                    	<cid translate="label">
+	                    	<label>Customer Id</label>
+	                    	<frontend_type>text</frontend_type>
+	               			<sort_order>10</sort_order>
+	               			<show_in_default>1</show_in_default>
+	               			<show_in_website>0</show_in_website>
+	                   		<show_in_store>1</show_in_store>
+                    	</cid>						
+                    </fields>
+            	</anlx_settings>
+                <autocomplete_settings>
+                	<label>Auto Complete Settings</label>
+                	<frontend_type>text</frontend_type>
+                	<sort_order>40</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+						<autocomplete_enabled translate="label">
+								<label>Enable Auto Complete</label>
+								<frontend_type>select</frontend_type>
+								<source_model>adminhtml/system_config_source_yesno</source_model>
+								<sort_order>0</sort_order>
+								<show_in_default>1</show_in_default>
+								<show_in_website>0</show_in_website>
+								<show_in_store>1</show_in_store>
+						</autocomplete_enabled>
+						<ac_customer_name translate="label">
+	                    	<label>Auto Complete Customer Name</label>
+	                    	<frontend_type>text</frontend_type>
+	                    	<comment>Customer name as defined by Celebros</comment>
+	               			<sort_order>5</sort_order>
+	               			<show_in_default>1</show_in_default>
+	               			<show_in_website>0</show_in_website>
+	                   		<show_in_store>1</show_in_store>
+							<depends><autocomplete_enabled>1</autocomplete_enabled></depends>
+                    	</ac_customer_name>					
+                    	<ac_frontend_address translate="label">
+	                    	<label>Auto Complete Frontend Server</label>
+	                    	<frontend_type>text</frontend_type>
+	                    	<comment>Host name / ip of the server on which the AutoComplete front-end resides</comment>
+	               			<sort_order>10</sort_order>
+	               			<show_in_default>1</show_in_default>
+	               			<show_in_website>0</show_in_website>
+	                   		<show_in_store>1</show_in_store>
+							<depends><autocomplete_enabled>1</autocomplete_enabled></depends>
+                    	</ac_frontend_address>
+                    	<ac_scriptserver_address translate="label">
+	                    	<label>Auto Complete Script Server</label>
+	                    	<frontend_type>text</frontend_type>
+	                    	<comment>Host name / ip of the server on which the AutoComplete content (scripts and styles) website resides. This is typically the same as above.</comment>
+	               			<sort_order>15</sort_order>
+	               			<show_in_default>1</show_in_default>
+	               			<show_in_website>0</show_in_website>
+	                   		<show_in_store>1</show_in_store>
+							<depends><autocomplete_enabled>1</autocomplete_enabled></depends>
+                    	</ac_scriptserver_address>	
+                    </fields>
+            	</autocomplete_settings>				
+                <crosssell_settings>
+                	<label>CrossSell Settings</label>
+                	<frontend_type>text</frontend_type>
+                	<sort_order>50</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+						<crosssell_enabled translate="label">
+							<label>Enable Crosssell</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>0</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>0</show_in_website>
+							<show_in_store>1</show_in_store>
+						</crosssell_enabled>
+						<crosssell_customer_name translate="label">
+	                    	<label>Cross-Sell Customer Name</label>
+	                    	<frontend_type>text</frontend_type>
+	                    	<comment>Cross-Sell customer name as defined by Celebros</comment>
+	               			<sort_order>5</sort_order>
+	               			<show_in_default>1</show_in_default>
+	               			<show_in_website>0</show_in_website>
+	                   		<show_in_store>1</show_in_store>
+							<depends><crosssell_enabled>1</crosssell_enabled></depends>
+                    	</crosssell_customer_name>
+						<crosssell_request_handle translate="label">
+	                    	<label>Cross-Sell Request Handle</label>
+	                    	<frontend_type>text</frontend_type>
+	                    	<comment>Cross-Sell request handle name as defined by Celebros</comment>
+	               			<sort_order>10</sort_order>
+	               			<show_in_default>1</show_in_default>
+	               			<show_in_website>0</show_in_website>
+	                   		<show_in_store>1</show_in_store>
+							<depends><crosssell_enabled>1</crosssell_enabled></depends>
+                    	</crosssell_request_handle>	
+                    	<crosssell_address translate="label">
+	                    	<label>Cross-Sell Server</label>
+	                    	<frontend_type>text</frontend_type>
+	                    	<comment>Host name / ip of the server on which the Cross-Sell resides</comment>
+	               			<sort_order>20</sort_order>
+	               			<show_in_default>1</show_in_default>
+	               			<show_in_website>0</show_in_website>
+	                   		<show_in_store>1</show_in_store>
+							<depends><crosssell_enabled>1</crosssell_enabled></depends>
+							<depends><crosssell_enabled>1</crosssell_enabled></depends>
+                    	</crosssell_address>
+                    </fields>
+            	</crosssell_settings>
+				<giftfinder_settings>
+                	<label>Giftfinder Settings</label>
+                	<frontend_type>text</frontend_type>
+                	<sort_order>60</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+				        <giftfinder_profile translate="label">
+                			<label>Gift Finder Profile Name</label>
+							<comment>To get the gift finder example go to {{store url}}/salesperson/giftfinder</comment>
+                			<frontend_type>text</frontend_type>
+                			<sort_order>0</sort_order>
+                			<show_in_default>1</show_in_default>
+                			<show_in_website>0</show_in_website>
+                			<show_in_store>1</show_in_store>
+                		</giftfinder_profile>
+                		<giftfinder_type translate="label">
+                            <label>Gift Finder Type</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>salesperson/system_config_source_giftfindertypes</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </giftfinder_type>
+                    </fields>
+            	</giftfinder_settings>
+                <livesight_settings>
+                	<label>LiveSight Settings</label>
+                	<frontend_type>text</frontend_type>
+                	<sort_order>70</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+						<livesight_enabled translate="label">
+							<label>Enable LiveSight</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>0</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>0</show_in_website>
+							<show_in_store>1</show_in_store>
+						</livesight_enabled>
+					</fields>
+            	</livesight_settings>				
+            </groups>
+        </salesperson>
+    </sections>
+</config>

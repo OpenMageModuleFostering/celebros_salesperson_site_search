@@ -1,0 +1,31 @@
+<div class="content-header">
+    <table cellspacing="0" class="grid-header">
+        <tr>
+            <td><h3><?=$this->__('Mapping')?></h3></td>
+            <td class="a-right">
+                <button onclick="editForm.submit()" class="scalable save" type="button"><span>Save Mapping</span></button>
+            </td>
+        </tr>
+    </table>
+</div>
+<div class="entry-edit">
+    <form id="edit_form" name="edit_form" method="post" action="<?=$this->getUrl('*/*/post')?>">
+        <input name="form_key" type="hidden" value="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>" />
+        <fieldset id="my-fieldset">
+            <table cellspacing="0" class="form-list">
+            <?php 
+            	$fields = $this->getFields();
+            	foreach($fields as $field):
+            ?>
+                <tr>
+                    <td class="label"><?=$this->__($field->getCodeField())?> <span class="required">*</span></td>
+                    <td class="input-ele"><input class="input-text required-entry" name="mapping[<?php echo $field->getId() ?>]" value="<?php echo $field->getXmlField() ?>" /></td>
+                </tr>
+             <?php endforeach; ?>
+            </table>
+        </fieldset>
+    </form>
+</div>
+<script type="text/javascript">
+    var editForm = new varienForm('edit_form');
+</script>

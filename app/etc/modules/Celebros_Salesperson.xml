@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * Celebros Qwiser - Magento Extension
+ *
+ * @category    Celebros
+ * @package     Celebros_Qwiser
+ * @author		Omniscience Co. - Dan Aharon-Shalom (email: dan@omniscience.co.il)
+ *
+ */
+ -->
+<config>
+    <modules>
+        <Celebros_Salesperson>
+            <active>true</active>
+            <codePool>community</codePool>
+        </Celebros_Salesperson>
+    </modules>
+</config>
